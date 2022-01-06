@@ -1,0 +1,15 @@
+[Unit]
+Description=Schedule docker volume backup every day
+RefuseManualStart=no  # Allow manual starts
+RefuseManualStop=no   # Allow manual stops
+
+[Timer]
+# Execute job if it missed a run due to machine being off
+Persistent=true
+# Run every 1 minute thereafter
+OnCalendar=*-*-* 4:00:00
+# File describing job to execute
+Unit=docker-backup.serivce
+
+[Install]
+WantedBy=timers.target

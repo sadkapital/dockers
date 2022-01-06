@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - 8008:80
+      - 8100:81
+      - 4430:443
+      - 9100:9100/tcp
+      - 9200:9200/tcp
+      - 9300:9300/tcp
+      - 9400:9400/tcp
+      - 9500:9500/tcp
+      - 9600:9600/tcp
+      - 9700:9700/tcp
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt

@@ -1,0 +1,9 @@
+[Unit]
+Description=Back up gitea docker volume data
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -c "$HOME/backup.sh"
+
+[Install]
+WantedBy=default.target
